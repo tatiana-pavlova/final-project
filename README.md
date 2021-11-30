@@ -104,8 +104,10 @@
    ],
    "weight": 69,
    "sprites": {
-      "official-artwork": {
-         "front-default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
+      "other": {
+         "official-artwork": {
+            "front-default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
+         },
       },
       ...
    }
