@@ -21,8 +21,13 @@ export default function NaviBar() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link><Link to="/">Home</Link></Nav.Link>
-              <Nav.Link><Link to="/pokemons">Caught Pokemons</Link></Nav.Link>
+              <Nav.Item><Link to="/">Home</Link></Nav.Item>  
+              {/* сделать марджины */}
+              <Nav.Item><Link to="/pokemons">Caught Pokemons</Link></Nav.Item>
+              {/* <Nav.Link to="/">Home</Nav.Link>
+              <Nav.Link to="/pokemons">Caught Pokemons</Nav.Link> */}
+              {/* <Link to="/">Home</Link>
+              <Link to="/pokemons">Caught Pokemons</Link> */}
             </Nav>
           </Navbar.Collapse>
         </Container>
