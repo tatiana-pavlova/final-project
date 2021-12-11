@@ -8,16 +8,20 @@ export default function PokemonCard(props) {
     props.onCardClick(props.card);
     console.log(props.card);
   }
+
+  function handleButtonClick() {
+    props.onButtonClick(props.card);
+  }
   
   return (
     <Col>
-      <Card onClick={handleClick} style={{width: '270px', margin: '20px 10px'}}>
+      <Card  style={{width: '270px', margin: '20px 10px'}}>
+        <Card.Body onClick={handleClick}>
         <Card.Img variant='top' src={props.card.picture} alt='Pokemon Picture' />
-        <Card.Body>
           <Card.Title>{props.card.name}</Card.Title>
           <Card.Text>ID: {props.card.id}</Card.Text>
-          <Button variant='primary'>Catch</Button>
         </Card.Body>
+        <Button variant='primary' onClick={handleButtonClick} disabled={props.card.catchStatus.status ? true : false}>Catch</Button>
       </Card>
     </Col>
   );  

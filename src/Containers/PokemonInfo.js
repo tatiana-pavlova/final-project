@@ -30,7 +30,7 @@ export default function PokemonInfo(props) {
                 })}
               </ul>    
             </Col>
-            <p><span>Current Status:</span> {props.card.status ? 'caught' : 'uncaught' }</p>
+            <p><span>Current Status:</span> {props.card.catchStatus.status ? `caught ${props.card.catchStatus.date}` : 'uncaught' }</p>
           </Row>
           
         </Col>

@@ -32,7 +32,7 @@ function App() {
       api.getPokemonInfo(id)
         .then((res) => {
           updatedPokemonList.push({name: res.name, id: res.id, picture: res.sprites.other['official-artwork'].front_default,
-                                    abilities: res.abilities, types: res.types, weight: res.weight, status: false});
+                                    abilities: res.abilities, types: res.types, weight: res.weight, catchStatus: {status:false, date: ''}});
           setPokemonCards(updatedPokemonList);
           navigate('/');
         })
@@ -47,13 +47,20 @@ function App() {
     setSelectedCard(card);
     navigate(`/pokemon/${card.id}`);
   }
+
+  const handleCatchClick = (card) => {
+    setSelectedCard(card);
+    const currentDate = new Date().toLocaleDateString();
+    card.catchStatus.status = true;
+    card.catchStatus.date = currentDate;
+  }
   
   
   return (
     <>
       <NaviBar />
       <Routes>
-        <Route exact path="/" element={<Main cards={pokemonCards} onCardClick={handleCardClick} />}  />
+        <Route exact path="/" element={<Main cards={pokemonCards} onCardClick={handleCardClick} onCatchClick={handleCatchClick} />}  />
         <Route path="/pokemons" element={<CaughtPokemons />}   />
         <Route path="/pokemon/:id" element={<PokemonInfo card={selectedCard}  />} />
       </Routes>

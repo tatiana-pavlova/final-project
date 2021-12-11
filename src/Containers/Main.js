@@ -10,7 +10,7 @@ export default function Main(props) {
         {props.cards.map((card) => {
           // console.log(props.cards);
           // console.log(card);
-          return (<PokemonCard key={card.id} card={card} onCardClick={props.onCardClick} /> )
+          return (<PokemonCard key={card.id} card={card} onCardClick={props.onCardClick} onButtonClick={props.onCatchClick} /> )
         })}
       </Row>
     </Container>
