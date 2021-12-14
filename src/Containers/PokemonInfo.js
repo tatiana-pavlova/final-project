@@ -1,18 +1,21 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
-export default function PokemonInfo(props) {
 
+export default function PokemonInfo(props) {
+  
   return (
-    <Container>
+    <Container className="mt-5" style={{minHeight: 'calc(100vh - 109px)'}}>
       <Row>
         <Col md={7}>
-          <img src={props.card.picture} alt={`Pokemon ${props.card.name}`} height={500} />
+          <img src={props.card.picture} alt={`Pokemon ${props.card.name}`} style={{width: '70%'}} />
         </Col>
         <Col md={5}>
-          <h1>{props.card.name}</h1>
-          <p>ID: {props.card.id}</p>
-          <p>Weight: {props.card.weight}</p>
+          <h1 className="text-primary mt-5">{props.card.name}</h1>
+          <p><span style={{fontWeight: 'bold'}}>ID:</span> {props.card.id}</p>
+          <p><span style={{fontWeight: 'bold'}}>Weight:</span> {props.card.weight}</p>
+          <p><span style={{fontWeight: 'bold'}}>Current Status: </span> 
+            {props.card.catchStatus.status ? `caught ${props.card.catchStatus.date}` : 'uncaught' }</p>
           <Row>
             <Col md={6}>
               <h4>Abilities:</h4>
@@ -30,9 +33,7 @@ export default function PokemonInfo(props) {
                 })}
               </ul>    
             </Col>
-            <p><span>Current Status:</span> {props.card.catchStatus.status ? `caught ${props.card.catchStatus.date}` : 'uncaught' }</p>
           </Row>
-          
         </Col>
       </Row>
     </Container>

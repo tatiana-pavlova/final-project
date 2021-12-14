@@ -5,14 +5,14 @@ class Api {
 
 
   getPokemonCards() {
-    return fetch (`${this._baseUrl}/pokemon`)
+    return fetch (`${this._baseUrl}/pokemon?offset=0&limit=878`)
       .then ((res) => {
         return this._checkResponse(res)
       })
   }
 
-  getPokemonInfo(id) {
-    return fetch (`${this._baseUrl}/pokemon/${id}`)
+  getPokemonInfo(url) {
+    return fetch (url)
       .then ((res) => {
         return this._checkResponse(res)
       })
